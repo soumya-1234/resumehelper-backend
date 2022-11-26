@@ -21,6 +21,15 @@ app.use(express.json());
 
 //students
 
+app.get("/health",async(req,res)=>{
+  try{
+    res.status(200).json("OK")
+  }
+  catch(err){
+    res.status(500).json(err)
+  }
+})
+
 app.post("/students/create",async(req,res)=>{
     const newStud= new Student(req.body);
 
